@@ -105,6 +105,25 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+
+# starsh.io prompt (we dont need it cause we have it in the plugins)
+# eval "$(starship init zsh)"
+
+# nvm (we dont need it cause we have it in the plugins)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# bun completions (we dont need it cause we have it in the plugins)
+# [ -s "/home/adel/.bun/_bun" ] && source "/home/adel/.bun/_bun"
+
+# bun
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -134,13 +153,7 @@ alias zsh="source ~/.zshrc"
 alias syncdotfiles="bash ~/.dotfiles/.bin/sync-dotfiles"
 
 
-# starsh.io prompt
-# eval "$(starship init zsh)"
 
-# nvm
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/adel/.local/share/pnpm"
@@ -149,12 +162,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# bun completions
-# [ -s "/home/adel/.bun/_bun" ] && source "/home/adel/.bun/_bun"
 
-# bun
-# export BUN_INSTALL="$HOME/.bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 
