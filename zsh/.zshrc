@@ -131,6 +131,7 @@ alias pn="pnpm"
 alias c="clear"
 alias h="history"
 alias zsh="source ~/.zshrc"
+alias syncdotfiles="~/.dotfiles/bin/sync-dotfiles"
 
 
 # starsh.io prompt
