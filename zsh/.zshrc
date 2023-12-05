@@ -168,47 +168,56 @@ export STARSHIP_CONFIG=~/starship.toml
 
 
 
-# this is for linux  -- Read the Node.js version from .nvmrc file
+# # this is for linux  -- Read the Node.js version from .nvmrc file
+# nodeVersion=$(cat .nvmrc 2>/dev/null)
+
+# if [[ -n $nodeVersion ]]; then
+#     # Activate specified Node.js version
+#     nvm use "$nodeVersion"
+#     echo "Node.js version $nodeVersion has been activated."
+# else
+#     # Check if there is a WiFi connection
+#     if ping -q -c 1 -W 1 google.com >/dev/null; then
+#         # Get the latest available Node.js version
+#         latestVersion=$(nvm ls-remote | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | sort -V | tail -n 1)
+
+#         if [[ -n $latestVersion ]]; then
+#             currentVersion=$(nvm current)
+
+#             if [[ "$currentVersion" == "none" ]]; then
+#                 nvm use "$latestVersion" > /dev/null
+#                 latestVersionWithoutV="${latestVersion#v}"
+#                 echo "Using the latest Node.js version ($latestVersionWithoutV)."
+#             elif [[ -n $currentVersion ]]; then
+#                 latestVersionWithoutV="${latestVersion#v}"
+
+#                 if [[ "$currentVersion" == "$latestVersionWithoutV" ]]; then
+#                     echo "You are already using the latest Node.js version ($currentVersion)."
+#                 else
+#                     echo "Current Node.js version: $currentVersion"
+#                     echo "Latest Node.js version: $latestVersionWithoutV"
+#                     echo "To install and use the latest version, run:"
+#                     echo "nvm install $latestVersionWithoutV"
+#                     echo "nvm use $latestVersionWithoutV"
+#                 fi
+#             else
+#                 echo "Unable to determine the current Node.js version."
+#             fi
+#         else
+#             echo "No available Node.js (.nvmrc) versions found."
+#         fi
+#     else
+#         echo "No WiFi connection. Using default Node.js version."
+#         nvm use default
+#         # Add your logic here to use a default Node.js version or take appropriate action
+#     fi
+# fi
+
 nodeVersion=$(cat .nvmrc 2>/dev/null)
 
 if [[ -n $nodeVersion ]]; then
-    # Activate specified Node.js version
-    nvm use "$nodeVersion"
-    echo "Node.js version $nodeVersion has been activated."
+  nvm use "$nodeVersion"
+  echo "Node.js version $nodeVersion has been activated."
 else
-    # Check if there is a WiFi connection
-    if ping -q -c 1 -W 1 google.com >/dev/null; then
-        # Get the latest available Node.js version
-        latestVersion=$(nvm ls-remote | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | sort -V | tail -n 1)
-
-        if [[ -n $latestVersion ]]; then
-            currentVersion=$(nvm current)
-
-            if [[ "$currentVersion" == "none" ]]; then
-                nvm use "$latestVersion" > /dev/null
-                latestVersionWithoutV="${latestVersion#v}"
-                echo "Using the latest Node.js version ($latestVersionWithoutV)."
-            elif [[ -n $currentVersion ]]; then
-                latestVersionWithoutV="${latestVersion#v}"
-                
-                if [[ "$currentVersion" == "$latestVersionWithoutV" ]]; then
-                    echo "You are already using the latest Node.js version ($currentVersion)."
-                else
-                    echo "Current Node.js version: $currentVersion"
-                    echo "Latest Node.js version: $latestVersionWithoutV"
-                    echo "To install and use the latest version, run:"
-                    echo "nvm install $latestVersionWithoutV"
-                    echo "nvm use $latestVersionWithoutV"
-                fi
-            else
-                echo "Unable to determine the current Node.js version."
-            fi
-        else
-            echo "No available Node.js (.nvmrc) versions found."
-        fi
-    else
-        echo "No WiFi connection. Using default Node.js version."
-        nvm use default
-        # Add your logic here to use a default Node.js version or take appropriate action
-    fi
+  nvm use default > /dev/null 2>&1
 fi
