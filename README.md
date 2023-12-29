@@ -36,8 +36,4 @@ cd ~/.dotfiles
 ```
 
 
-### stow each one like to resore (automate this later)
-
-```bash
-stow git
-```
+### after giving permission to run the scrypt just run it automated
