@@ -2,41 +2,62 @@
 
 # Sync dotfiles repo and ensure that dotfiles are tangled correctly afterward
 
-GREEN='\033[1;32m'
-BLUE='\033[1;34m'
-RED='\033[1;30m'
-NC='\033[0m'
+
+GREEN='\033[1;32m'  # Bold Green
+BLUE='\033[1;34m'   # Bold Blue
+RED='\033[1;31m'    # Bold Red
+CYAN='\033[1;36m'   # Bold Cyan
+YELLOW='\033[1;33m' # Bold Yellow
+MAGENTA='\033[1;35m' # Bold Magenta
+WHITE='\033[1;37m'  # Bold White
+NC='\033[0m'        # No Color
 
 # Navigate to the directory of this script (generally ~/.dotfiles/.bin)
 cd $(dirname $(readlink -f $0))
 cd ..
 
-echo -e "${BLUE}Stashing existing changes...${NC}"
-stash_result=$(git stash push -m "sync-dotfiles: Before syncing dotfiles")
-needs_pop=1
-if [ "$stash_result" = "No local changes to save" ]; then
-    needs_pop=0
-fi
+# Check for changes in the remote repo
+echo -e "${GREEN}Checking for changes in the remote repo...${NC}"
+git remote update
 
-echo -e "${BLUE}Pulling updates from dotfiles repo...${NC}"
-echo
-git pull origin master
-echo
+if [ "$(git status -uno | grep -o 'Your branch is behind')" ]; then
+    if [ -n "$(git status -s)" ]; then
+        # There are local changes
+        echo -e "${CYAN}Local changes found. Stashing...${NC}"
+        git stash push -m "sync-dotfiles: Before pulling changes from the remote repo"
+    else
+        # No local changes
+        echo -e "${BLUE}No local changes found.${NC}"
+    fi
 
-if [[ $needs_pop -eq 1 ]]; then
-    echo -e "${BLUE}Popping stashed changes...${NC}"
-    echo
-    git stash pop
-fi
+    # Pull updates from the remote repo
+    echo -e "${YELLOW}Pulling updates from the remote repo...${NC}"
+    git pull origin master
+    
+    # Show changes after pulling
+    echo -e "${MAGENTA}Changes after pulling updates:${NC}"
+    git --no-pager log --pretty=oneline --abbrev-commit --color origin/master..HEAD
 
-unmerged_files=$(git diff --name-only --diff-filter=U)
-if [[ ! -z $unmerged_files ]]; then
-   echo -e "${RED}The following files have merge conflicts after popping the stash:${NC}"
-   echo
-   printf %"s\n" $unmerged_files  # Ensure newlines are printed
+    # Check if there were local changes before pulling
+    if [ -n "$(git stash list)" ]; then
+        # There were local changes before pulling, apply stashed changes
+        echo -e "${CYAN}Applying stashed changes...${NC}"
+        git stash apply
+    else
+        # No stashed changes
+        echo -e "${BLUE}No stashed changes found.${NC}"
+    fi
 else
-   # Run stow to ensure all new dotfiles are linked
-   stow git
-   stow starship_prompt
-   stow zsh
+    echo -e "${BLUE}No changes in the remote repo.${NC}"
+fi
+
+
+# Ask user whether to run stow
+read -p "Do you want to run stow to link new dotfiles? (y/n): " answer
+if [ "$answer" == "y" ]; then
+    # Run stow to ensure all new dotfiles are linked
+    stow */
+    echo -e "${GREEN}Stow completed successfully.${NC}"
+else
+    echo -e "${BLUE}Stow skipped.${NC}"
 fi

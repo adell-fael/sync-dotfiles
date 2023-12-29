@@ -146,6 +146,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="code ~/.zshrc"
+alias gitconfig="code ~/.gitconfig"
 alias pn="pnpm"
 alias c="clear"
 alias h="history"
@@ -161,6 +162,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+# pnpm end
+
 
 
 

@@ -11,9 +11,10 @@ chmod +x $HOME/.dotfiles/.bin/sync-dotfiles
 ls -l $HOME/.dotfiles/.bin/sync-dotfiles
 ```
 
-also the structrue is like this 
-
 ---
+
+Also the structure is like this 
+
 ## structure 
 
 ```bash
@@ -36,4 +37,4 @@ cd ~/.dotfiles
 ```
 
 
-### after giving permission to run the scrypt just run it automated
+### after giving the permission just run the script
