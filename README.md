@@ -1,3 +1,5 @@
+# Before doing all this make sure these are installed: stow, git
+
 
 - run this to give permission to run the script  
 
@@ -13,9 +15,9 @@ ls -l $HOME/.dotfiles/.bin/sync-dotfiles
 
 ---
 
-Also the structure is like this 
-
 ## structure 
+
+in the home directory 
 
 ```bash
 .dotfiles/
