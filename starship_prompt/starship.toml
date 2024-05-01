@@ -142,3 +142,7 @@ symbol = " "
 
 [scala]
 symbol = " "
+
+[battery]
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '

@@ -224,3 +224,5 @@ if [[ -n $nodeVersion ]]; then
 else
   nvm use default > /dev/null 2>&1
 fi
+
+PATH=~/.console-ninja/.bin:$PATH
