@@ -23,7 +23,7 @@
 	push-with-lease = push --force-with-lease
 	# Rebase won’t trigger hooks on each "replayed" commit.
 	# This is an ugly hack that will replay each commit during rebase with the
-	# standard `commit` command which will trigger hooks.
+	# standard `commit` command which will trigger hooks
 	rebase-with-hooks = rebase -x 'git reset --soft HEAD~1 && git commit -C HEAD@{1}'
 	# List local commits that were not pushed to remote repository
 	review-local = "!git lg @{push}.."
@@ -37,3 +37,5 @@
 	ui = true
 [help]
 	autocorrect = 2
+[credential]
+	helper = store

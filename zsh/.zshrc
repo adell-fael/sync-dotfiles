@@ -85,12 +85,12 @@ plugins=(
     copyfile
     copypath
     # pip
-    # react-native
+    react-native
     # snap
     sudo
     vscode
     # xcode
-    # z
+    zsh-z
     # web-search
     starship
 )
@@ -226,3 +226,14 @@ else
 fi
 
 PATH=~/.console-ninja/.bin:$PATH
+
+
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+
+export PATH=$PATH:~/.local/bin
