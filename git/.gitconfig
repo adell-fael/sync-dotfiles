@@ -1,6 +1,6 @@
 [user]
-	name = AdelFael
-	email = new19.adel@gmail.com
+	name = adell-fael
+	email = adel0fael@gmail.com
 [alias]
 	ac = !git add . && git commit -m
 	st = status
