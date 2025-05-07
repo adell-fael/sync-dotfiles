@@ -90,7 +90,7 @@ plugins=(
     sudo
     vscode
     # xcode
-    zsh-z
+    z
     # web-search
     starship
 )
@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # bun completions (we dont need it cause we have it in the plugins)
-# [ -s "/home/adel/.bun/_bun" ] && source "/home/adel/.bun/_bun"
+# [ -s "/home/adelfael/.bun/_bun" ] && source "/home/adelfael/.bun/_bun"
 
 # bun
 # export BUN_INSTALL="$HOME/.bun"
@@ -157,7 +157,7 @@ alias syncdotfiles="bash ~/.dotfiles/.bin/sync-dotfiles"
 
 
 # pnpm
-export PNPM_HOME="/home/adel/.local/share/pnpm"
+export PNPM_HOME="/home/adelfael/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -237,3 +237,4 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 
 export PATH=$PATH:~/.local/bin
+source /home/adelfael/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
