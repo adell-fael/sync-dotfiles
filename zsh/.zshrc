@@ -237,4 +237,3 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 
 export PATH=$PATH:~/.local/bin
-source /home/adelfael/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

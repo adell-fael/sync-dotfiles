@@ -1,16 +1,16 @@
 1. Install: stow, git
-2. navigate to Home directory and create `.dotfiles` and clone this repo/setup inside it
-3. - run this to give permission to run the script  
+2. navigate to Home directory and clone this repo and rename it to `.dotfiles` 
+3. to give permission to run the script: 
     
     ```bash
     chmod +x $HOME/.dotfiles/.bin/sync-dotfiles
     ```
-    
-    - verify permission
+    *verify permission*
     
     ```bash
     ls -l $HOME/.dotfiles/.bin/sync-dotfiles
     ```
+5. also download these https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df to complete the zsh
 4. after running the script the files will populate and linked automatically
     
     ---
