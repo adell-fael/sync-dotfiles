@@ -10,8 +10,13 @@
     ```bash
     ls -l $HOME/.dotfiles/.bin/sync-dotfiles
     ```
-5. also download these https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df to complete the zsh
-4. after running the script the files will populate and linked automatically
+4. download `zsh` and `oh-my-zsh`
+5. make zsh default shell:
+    ``` bash
+        chsh -s $(which zsh)
+    ```
+6. also download these https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df to complete the zsh
+7. after running the script the files will populate and linked automatically
     
     ---
 
