@@ -239,13 +239,16 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:~/.local/bin
 
 
-cursor() {
-  local APPIMAGE_PATH="$HOME/Applications/Cursor/cursor.AppImage"  # change this to your actual AppImage path
+# make it a script and put it under ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+# or this 
+# cursor() {
+#   local APPIMAGE_PATH="$HOME/Applications/Cursor/cursor.AppImage"  # change this to your actual AppImage path
 
-  if [[ ! -f "$APPIMAGE_PATH" ]]; then
-    echo "Error: Cursor AppImage not found at $APPIMAGE_PATH" >&2
-    return 1
-  fi
+#   if [[ ! -f "$APPIMAGE_PATH" ]]; then
+#     echo "Error: Cursor AppImage not found at $APPIMAGE_PATH" >&2
+#     return 1
+#   fi
 
-  "$APPIMAGE_PATH" "$@" &> /dev/null &
-}
+#   "$APPIMAGE_PATH" "$@" &> /dev/null &
+# }

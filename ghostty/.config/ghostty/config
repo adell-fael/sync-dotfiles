@@ -1,0 +1,6 @@
+# on Ghostty's website, at https://ghostty.org/docs.
+
+theme = vesper
+font-family= "GeistMono Nerd Font Mono"
+font-size = 12
+font-feature = liga
